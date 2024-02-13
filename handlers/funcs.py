@@ -63,3 +63,8 @@ def result(callback: telebot.types.CallbackQuery, percent):
 def magic_gift(callback: telebot.types.CallbackQuery):
     with open("handlers/photo/photo_result/magic_gift.jpg", "rb") as photo:
         bot.send_photo(callback.message.chat.id, photo, caption=f"Держи, она выбрала тебя!")
+
+def get_last_chislo_in_str(s: str):
+    for i in range(len(s)-1, 0, -1):
+        if not s[i].isdigit():
+            return int(s[i+1:])
